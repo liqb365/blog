@@ -13,14 +13,14 @@
 <meta property="og:site_name" content="技术随笔">
 <meta property="og:description" content="muladd指令  指令介绍 本文介绍的是基于Nucleie203处理器留下的NICE拓展接口开发的新CPU指令muladd。该指令可以用来进行向量与标量的乘法运算，并在运算后对运算结果进行累加。 总的来讲，NICE vector协处理器有三组内部寄存器，inputvector1,inputvector2和resultvector。前两个用来做向量参数输入，最后一个用来累加和其他向量运算的结果。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://github.com/blog/media/image1.png">
-<meta property="og:image" content="https://github.com/blog/media/image2.png">
-<meta property="og:image" content="https://github.com/blog/media/image3.png">
-<meta property="article:published_time" content="2025-03-29T23:26:10.479Z">
-<meta property="article:modified_time" content="2025-03-29T23:26:10.479Z">
+<meta property="og:image" content="https://github.com/blog/images/media/image1.png">
+<meta property="og:image" content="https://github.com/blog/media/muladd%E6%8C%87%E4%BB%A4/image2.png">
+<meta property="og:image" content="https://github.com/blog/media/muladd%E6%8C%87%E4%BB%A4/image3.png">
+<meta property="article:published_time" content="2025-03-30T00:00:47.969Z">
+<meta property="article:modified_time" content="2025-03-30T00:00:47.969Z">
 <meta property="article:author" content="liqb365">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/blog/media/image1.png">
+<meta name="twitter:image" content="https://github.com/blog/images/media/image1.png">
   
     <link rel="alternate" href="/blog/atom.xml" title="技术随笔" type="application/atom+xml">
   
@@ -80,7 +80,7 @@
         <section id="main"><article id="post-muladd指令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/pages/muladd%E6%8C%87%E4%BB%A4.html" class="article-date">
-  <time class="dt-published" datetime="2025-03-29T23:26:10.479Z" itemprop="datePublished">2025-03-30</time>
+  <time class="dt-published" datetime="2025-03-30T00:00:47.969Z" itemprop="datePublished">2025-03-30</time>
 </a>
     
   </div>
@@ -89,7 +89,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p><strong>muladd指令</strong></p>
+        <p>muladd指令</p>
 <ol>
 <li><p><strong>指令介绍</strong></p>
 <p>本文介绍的是基于Nuclei<br>e203处理器留下的NICE拓展接口开发的新CPU指令muladd。该指令可以用来进行向量与标量的乘法运算，并在运算后对运算结果进行累加。</p>
@@ -99,17 +99,17 @@
 <p>乘加操作是矩阵乘法的基础操作，可以用来进行矩阵相乘的运算。</p>
 <p><strong>2.指令格式</strong></p>
 <p>RISC-V架构(RV32I)的R type指令格式为：</p>
-<p><img src="/blog/./media/image1.png">{width&#x3D;”5.764583333333333in”<br>height&#x3D;”0.5159722222222223in”}</p>
-<p>RISC-V架构规范中已经定义的指令没有将所有的字段用光，所以留给CPU开发者很大的空间可以定义自定义的指令。</p>
-<p>这里我定义了一个新指令，muladd。它的定义为：</p>
+<p><img src="/blog/images/media/image1.png"></p>
 </li>
 </ol>
+<p>RISC-V架构规范中已经定义的指令没有将所有的字段用光，所以留给CPU开发者很大的空间可以定义自定义的指令。</p>
+<p>这里我定义了一个新指令，muladd。它的定义为：</p>
 <hr>
 <p>  <strong>字段</strong>   <strong>位宽</strong>   <strong>值</strong><br>  func7      7          0b0000110<br>  func3      3          0b111<br>  opcode     7          0b1111011</p>
 <hr>
 <p><strong>3.软件实现</strong></p>
 <p>软件做对应的API封装：</p>
-<p><img src="/blog/./media/image2.png">{width&#x3D;”5.763888888888889in”<br>height&#x3D;”2.470138888888889in”}</p>
+<p><img src="/blog/./media/muladd%E6%8C%87%E4%BB%A4/image2.png">{width&#x3D;”5.763888888888889in”<br>height&#x3D;”2.470138888888889in”}</p>
 <p><strong>4.软件验证</strong></p>
 <p>验证思路如下：</p>
 <p>首先将inputvector1初始化为1~16组成的向量。</p>
@@ -178,12 +178,12 @@
 <p>    <strong>return</strong> 0;</p>
 <p>}</p>
 <p>计算结果：</p>
-<p><img src="/blog/./media/image3.png">{width&#x3D;”5.7659722222222225in”<br>height&#x3D;”0.3590277777777778in”}</p>
+<p><img src="/blog/./media/muladd%E6%8C%87%E4%BB%A4/image3.png">{width&#x3D;”5.7659722222222225in”<br>height&#x3D;”0.3590277777777778in”}</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/liqb365/blog/pages/muladd%E6%8C%87%E4%BB%A4.html" data-id="cm8uuh9wa00009q967q5q9di2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://github.com/liqb365/blog/pages/muladd%E6%8C%87%E4%BB%A4.html" data-id="cm8uvk1el0000gl962bzr3ewt" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
